@@ -4,7 +4,7 @@ import math
 
 from common import read_input
 
-CHALLENGES = 7
+CHALLENGES = 8
 
 
 def distance(city1, city2):
@@ -18,6 +18,8 @@ def verify_output():
         N = len(cities)
         for output_prefix in ('output', 'sample/random', 'sample/greedy', 'sample/sa'):
             output_file = f'{output_prefix}_{challenge_number}.csv'
+            if output_prefix == 'sample/sa' and challenge_number == 7:
+                continue
             with open(output_file) as f:
                 lines = f.readlines()
                 assert lines[0].strip() == 'index'

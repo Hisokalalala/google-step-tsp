@@ -1,4 +1,38 @@
+# Class7 TSP Challenge
+
+## 問題
+与えられたinput(N=2048, 8192)に対して、合計の長さが一番短い巡回経路を見つける。
+詳しい問題の詳細は、このREADMEの下の方に記載されています。
+
+## Class5と比べて、変更した点
+* Hinako-sanのコードを借りさせていただいて、greedy_with_expansionとmove_subsequenceのメソッドを作りました。
+  * 個人的に加えた変更としては、greedy-with_expansionするときに、スタートノードを変更できるようにしたのですが、どうやらもともとHinako-sanが使っていたexpansion_rateはスタートノードが0の時に適した値になっていたので、スタートのーどを変更しても、結局は0ノードからスタートするのが一番いい結果になりました。多分スタートノードと一緒にexpansion_rateを少しずつ変えていくともしかしたらいい結果が出る気がしました。
+  * また、スタートノードを固定してexpansion_rateを変更しても結果は改善されませんでした。
+  * あとは実行の時に、入れ替える部分列の長さを増やしてやってみたりと、いろいろ実験してみたのですが、相関性がいまだによくわかっていません。
+
+* Kotone-sanのコードを借りさせていただいて、3-optのメソッドを作りました。
+  * 一応最適化用のコードには組み込んでいるのですが、N=512, 2048などで試した際、3-optを使ったときと使わなかった時の違いがそれほどわからなかったです。
+
+* 今のコードにはないのですが、Homework Reviewに記載してあった去年の人の焼きなまし法のコードを使って実験してみたのですが、精度がだいぶ悪くなったので、割愛させていただきました。
+
+
+## 実行結果
+### best score
+| Challenge   | N (= the number of cities) | Input file  | Output file  | Path_length  |
+| ----------- | -------------------------: | ----------- | ------------ | ------------ |
+| Challenge 6 |                       2048 | input_6.csv | output_6.csv | 40754.47     |
+| Challenge 7 |                       8192 | input_7.csv | output_7.csv | 81607.41     |
+
+
+## 試したかったけど時間なかったこととして
+* Christofides法
+* Convex Hull法
+
+一回の実行に割と時間がかかってしまうので、去年の人が書いたコードは見つけたのですが、使って試す時間が足りませんでした。C++だったら割と速く実行が終わるらしいのですが、pythonのコードをC++に書き直せるほどC++について詳しくないので、今後の課題だなと思いました。
+
+
 # Google STEP 2021: Travelling Salesman Problem Challenges
+
 
 Originally By: [Hayato Ito](https://github.com/hayatoito) (hayato@google.com)  
 2020, 2021 Versions By: [Hugh O'Cinneide](https://github.com/hkocinneide)
