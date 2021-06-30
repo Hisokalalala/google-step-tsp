@@ -47,14 +47,13 @@ def two_opt(tour, dist):
         cnt = 0
         for i in range(N - 2):
             for j in range(i + 2, N):
-                if i != 0 or (j + 1) % N != 0:
-                    l1 = dist[tour[i]][tour[i + 1]]
-                    l2 = dist[tour[j]][tour[(j + 1) % N]]
-                    l3 = dist[tour[i]][tour[j]]
-                    l4 = dist[tour[i + 1]][tour[(j + 1) % N]]
-                    if l1 + l2 > l3 + l4:
-                        tour[i + 1:j + 1] = tour[i + 1:j + 1][::-1]
-                        cnt += 1
+                l1 = dist[tour[i]][tour[i + 1]]
+                l2 = dist[tour[j]][tour[(j + 1) % N]]
+                l3 = dist[tour[i]][tour[j]]
+                l4 = dist[tour[i + 1]][tour[(j + 1) % N]]
+                if l1 + l2 > l3 + l4:
+                    tour[i + 1:j + 1] = tour[i + 1:j + 1][::-1]
+                    cnt += 1
         if cnt == 0:
             break
 
