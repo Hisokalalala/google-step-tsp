@@ -4,6 +4,7 @@ from common import format_tour, read_input
 
 import solver_greedy
 import solver_random
+import solver_myself
 
 CHALLENGES = 7
 

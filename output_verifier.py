@@ -23,8 +23,7 @@ def verify_output():
                 assert lines[0].strip() == 'index'
                 tour = [int(i.strip()) for i in lines[1:N + 1]]
             assert set(tour) == set(range(N))
-            path_length = sum(distance(cities[tour[i]], cities[tour[(i + 1) % N]])
-                              for i in range(N))
+            path_length = sum(distance(cities[tour[i]], cities[tour[(i + 1) % N]]) for i in range(N))
             print(f'{output_prefix:16}: {path_length:>10.2f}')
         print()
 
